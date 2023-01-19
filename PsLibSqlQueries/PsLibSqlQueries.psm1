@@ -1,13 +1,14 @@
 #Get public and private function definition files.
 $Public  = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue )
 $Private = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue )
-
 #Dot source the files
 Foreach($import in @($Public + $Private))
 {
     Try
     {
         . $import.fullname
+
+        Write-Host "Exported $import.$fullname"
     }
     Catch
     {
@@ -21,3 +22,5 @@ Foreach($import in @($Public + $Private))
 # Set variables visible to the module and its functions only
 
 Export-ModuleMember -Function $Public.Basename
+
+Write-Host "Exported Members $Public.$Basename"
