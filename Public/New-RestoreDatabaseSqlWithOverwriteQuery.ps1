@@ -13,12 +13,13 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         [string]
         $backupLocation
     )
+    Import-Module PsLibSqlTools
 
     $QueryToCreateRestoreQuery = "
         USE $dstDatabaseName
         SELECT name as LogicalName, physical_name as PhysicalName FROM sys.database_files"
 
-    $queryResult = Invoke-SQL -databaseName $dstDatabaseName -dataSource $dstDataSource -sqlQuery $QueryToCreateRestoreQuery 
+    $queryResult = Invoke-SQLQuery -databaseName $dstDatabaseName -dataSource $dstDataSource -sqlQuery $QueryToCreateRestoreQuery 
     $dbFiles = $queryResult
         
     $sqlQuery = "
@@ -29,7 +30,7 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
     foreach ($dbFile in $dbFiles) {
         $logicalName = $dbFile.LogicalName
         $physicalName = $dbFile.PhysicalName
-        $sqlQuery = $sqlQuery + ",MOVE  N'$logicalName' TO N'$physicalName'"
+        $sqlQuery = $sqlQuery + ", MOVE N'$logicalName' TO N'$physicalName'"
     }
 
     $sqlQuery = $sqlQuery + ", NOUNLOAD, REPLACE, STATS = 5
