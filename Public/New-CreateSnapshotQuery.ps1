@@ -3,6 +3,7 @@ function New-CreateSnapshotQuery {
     param (
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [ValidateNotNullOrEmpty()]
+        [AddDelimitersTransform()]
         [string] 
         $databaseName,
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]

@@ -2,6 +2,7 @@ function New-BackupDatabaseSqlQuery {
     param (
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
         [ValidateNotNullOrEmpty()]
+        [AddDelimitersTransform()]
         [string] 
         $srcDatabaseName,
         [Parameter(Mandatory=$true)]

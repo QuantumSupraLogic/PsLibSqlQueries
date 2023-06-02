@@ -1,10 +1,12 @@
 function New-ChangeDatabaseRecoveryModelSqlQuery{
     param (
         [Parameter(Mandatory=$true,ValueFromPipeline=$true)]
+        [ValidateNotNullOrEmpty]
+        [AddDelimitersTransform()]
         [string] 
         $databaseName,
         [Parameter(Mandatory=$true)]
-        [ValidateSet('Full', 'Bulk-Logged', 'Simple')]
+        [ValidateSet('FULL', 'BULK-LOGGED', 'SIMPLE')]
         [string]
         $recoveryModel
     )
