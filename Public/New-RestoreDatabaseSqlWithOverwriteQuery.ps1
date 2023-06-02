@@ -2,7 +2,6 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
     param (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [AddDelimitersTransform()]
         [string] 
         $dstDataSource,
         [Parameter(Mandatory = $true, ValueFromPipeline=$true)]
