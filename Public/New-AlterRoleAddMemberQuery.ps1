@@ -1,4 +1,4 @@
-function New-AddUserToRoleQuery {
+function New-AlterRoleAddMemberQuery{
     [CmdletBinding()]
     param (
         [Parameter()]
