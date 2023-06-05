@@ -1,4 +1,4 @@
-function New-UserDatabaseQuery{
+function New-UseDatabaseQuery{
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
