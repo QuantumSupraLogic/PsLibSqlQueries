@@ -29,7 +29,7 @@ function New-AlterUserQuery{
             "
         }
         $SqlQuery = "
-            ALTER USER $userName WITH LOGIN $login
+            ALTER USER $userName WITH LOGIN = $login
         "
     }
     
