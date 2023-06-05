@@ -17,7 +17,7 @@ function New-ShrinkDatabaseQuery{
     
     process {
         $SqlQuery = "
-            DBCC SHRINKDATABASE $databaseName, $targetPercentage
+            DBCC SHRINKDATABASE($databaseName, $targetPercentage)
             "
     }
     
