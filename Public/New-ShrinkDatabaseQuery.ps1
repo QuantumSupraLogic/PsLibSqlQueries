@@ -1,7 +1,8 @@
-function New-DropUserQuery{
+function New-ShrinkDatabaseQuery{
     [CmdletBinding()]
     param (
-        [Parameter()]
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
         [AddDelimitersTransform()]
         [string] 
         $databaseName,
