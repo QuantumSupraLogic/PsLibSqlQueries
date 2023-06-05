@@ -1,7 +1,7 @@
 function New-ChangeDatabaseRecoveryModelSqlQuery{
     param (
         [Parameter(Mandatory=$true,ValueFromPipeline=$true)]
-        [ValidateNotNullOrEmpty]
+        [ValidateNotNullOrEmpty()]
         [AddDelimitersTransform()]
         [string] 
         $databaseName,
