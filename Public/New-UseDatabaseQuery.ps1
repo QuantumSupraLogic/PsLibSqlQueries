@@ -1,4 +1,4 @@
-function New-ShrinkDatabaseQuery{
+function New-UserDatabaseQuery{
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
