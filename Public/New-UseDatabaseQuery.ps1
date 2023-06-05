@@ -14,7 +14,7 @@ function New-UseDatabaseQuery{
     
     process {
         $SqlQuery = "
-            USE DATABASE $databaseName
+            USE $databaseName
             GO
             "
     }
