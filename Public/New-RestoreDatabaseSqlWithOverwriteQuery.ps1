@@ -21,7 +21,7 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         [string]
         $logPathNewDb
     )
-    if (!(Get-Module "PsLibSqlTools")) {
+    if (!(Get-Module 'PsLibSqlTools')) {
         Import-Module PsLibSqlTools
     }
 
@@ -124,8 +124,7 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         WITH REPLACE 
             , RECOVERY
             , STATS = 5
-            ' + @MoveFiles + N';
-        GO';
+            ' + @MoveFiles + N';';
         
         IF LEN(@RestoreCmd) > 4000 
         BEGIN
@@ -140,7 +139,7 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         END
         ELSE
         BEGIN
-            EXECUTE @RestoreCmd;
+            EXECUTE (@RestoreCmd);
         END"
 
     return $query
