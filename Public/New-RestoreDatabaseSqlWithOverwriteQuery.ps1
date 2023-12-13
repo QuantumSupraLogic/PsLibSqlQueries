@@ -119,7 +119,10 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         SET @MoveFiles = REPLACE(@MoveFiles, char(10), char(13) + char(10));
         SET @MoveFiles = LEFT(@MoveFiles, LEN(@MoveFiles) - 2);
         
-        SET @RestoreCmd = N'RESTORE DATABASE ' + @DBName + N'
+        SET @RestoreCmd = N'ALTER DATABASE ' + @DBName + ' SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+        GO
+
+        RESTORE DATABASE ' + @DBName + N'
         FROM DISK = N''' + @BackupFile + N''' 
         WITH REPLACE 
             , RECOVERY
