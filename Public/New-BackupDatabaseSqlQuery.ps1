@@ -1,3 +1,5 @@
+Set-StrictMode -Version 3.0
+
 function New-BackupDatabaseSqlQuery {
     param (
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)]

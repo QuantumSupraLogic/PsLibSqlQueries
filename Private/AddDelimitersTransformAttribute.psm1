@@ -1,3 +1,5 @@
+Set-StrictMode -Version 3.0
+
 class AddDelimitersTransformAttribute : System.Management.Automation.ArgumentTransformationAttribute {
     [object] Transform([System.Management.Automation.EngineIntrinsics]$engineIntrinsics, [object]$inputData)
     {

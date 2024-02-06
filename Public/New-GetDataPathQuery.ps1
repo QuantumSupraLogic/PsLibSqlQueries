@@ -1,3 +1,5 @@
+Set-StrictMode -Version 3.0
+
 function New-GetDataPathQuery {
     param (
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]

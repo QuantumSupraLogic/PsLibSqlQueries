@@ -1,3 +1,5 @@
+Set-StrictMode -Version 3.0
+
 function New-RestoreDatabaseSqlWithOverwriteQuery {
     param (
         [Parameter(Mandatory = $true)]
@@ -6,6 +8,7 @@ function New-RestoreDatabaseSqlWithOverwriteQuery {
         $dstDataSource,
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [ValidateNotNullOrEmpty()]
+        [AddDelimitersTransform()]
         [string] 
         $dstDatabaseName,
         [Parameter(Mandatory = $true)]
