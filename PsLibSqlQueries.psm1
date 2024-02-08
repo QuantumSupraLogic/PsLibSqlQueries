@@ -12,10 +12,8 @@ Foreach($import in @($Private + $Public))
     {
         . $import.fullname
 
-        Write-Host "Exported $import.$fullname"
-    }
-    Catch
-    {
+        Write-Host "Exported $import.fullname"
+    } Catch {
         Write-Error -Message "Failed to import function $($import.fullname): $_"
     }
 }
@@ -27,4 +25,4 @@ Foreach($import in @($Private + $Public))
 
 Export-ModuleMember -Function $Public.Basename
 
-Write-Host "Exported Members $Public.$Basename"
+Write-Host "Exported Members $Public.Basename"
