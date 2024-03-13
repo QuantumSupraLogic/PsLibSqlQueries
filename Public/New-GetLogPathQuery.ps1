@@ -9,7 +9,13 @@ function New-GetLogPathQuery {
     )
     $query = "
         USE $databaseName
-        SELECT physical_name FROM sys.database_files WHERE TYPE = 0"
+        SELECT 
+            physical_name 
+        FROM 
+            sys.database_files 
+        WHERE 
+            type = 1 and 
+            state = 0"
 
     return $query
 }
